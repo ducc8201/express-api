@@ -35,66 +35,67 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.itemsRouter = void 0;
-const ItemService = __importStar(require("./items.service"));
+exports.UsersRouter = void 0;
+const UserService = __importStar(require("./users.service"));
 const express_1 = __importDefault(require("express"));
-exports.itemsRouter = express_1.default.Router();
-// GET items
-exports.itemsRouter.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+exports.UsersRouter = express_1.default.Router();
+// GET Users
+exports.UsersRouter.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const items = yield ItemService.findAll();
-        res.status(200).send(items);
+        const { country } = req.query;
+        const users = yield UserService.findAll(country);
+        res.status(200).json(users);
     }
     catch (e) {
         res.status(500).send(e.message);
     }
 }));
-// GET items/:id
-exports.itemsRouter.get("/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const id = Number(req.params.id);
+// GET Users/:id
+exports.UsersRouter.get("/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const id = req.params.id;
     try {
-        const item = yield ItemService.find(id);
-        if (item)
-            return res.status(200).send(item);
-        res.status(404).send('item not found');
+        const user = yield UserService.find(id);
+        if (user)
+            return res.status(200).json(user);
+        res.status(404).send('User not found');
     }
     catch (e) {
         res.status(500).send(e.message);
     }
 }));
-// POST item/:id
-exports.itemsRouter.post("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+// POST User/:id
+exports.UsersRouter.post("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const item = req.body;
-        const newItem = yield ItemService.create(item);
-        res.status(201).json(newItem);
+        const user = req.body;
+        const newUser = yield UserService.create(user);
+        res.status(201).json(newUser);
     }
     catch (e) {
         res.status(500).send(e.message);
     }
 }));
-// PUT items/:id
-exports.itemsRouter.put("/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const id = parseInt(req.params.id, 10);
+// PUT Users/:id
+exports.UsersRouter.put("/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const id = req.params.id;
     try {
-        const itemUpdate = req.body;
-        const existingItem = yield ItemService.find(id);
-        if (existingItem) {
-            const updatedItem = yield ItemService.update(id, itemUpdate);
-            return res.status(200).json(updatedItem);
+        const userUpdate = req.body;
+        const existingUser = yield UserService.find(id);
+        if (existingUser) {
+            const updatedUser = yield UserService.update(id, userUpdate);
+            return res.status(200).json(updatedUser);
         }
-        const newItem = yield ItemService.create(itemUpdate);
-        res.status(201).json(newItem);
+        const newUser = yield UserService.create(userUpdate);
+        res.status(201).json(newUser);
     }
     catch (e) {
         res.status(500).send(e.message);
     }
 }));
-// DELETE items/:id
-exports.itemsRouter.delete("/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+// DELETE Users/:id
+exports.UsersRouter.delete("/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const id = Number(req.params.id);
-        yield ItemService.remove(id);
+        const id = req.params.id;
+        yield UserService.remove(id);
         res.sendStatus(204);
     }
     catch (e) {

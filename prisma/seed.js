@@ -52,6 +52,7 @@ function main() {
                     if (!(i < 1000)) return [3 /*break*/, 4];
                     address = (0, falso_1.randAddress)();
                     item = {
+                        id: (0, falso_1.randUuid)(),
                         name: (0, falso_1.randFullName)(),
                         password: (0, falso_1.randPassword)(),
                         password2: (0, falso_1.randPassword)(),
@@ -61,6 +62,7 @@ function main() {
                         addressStreet: String(address.street),
                         city: String(address.city),
                         zipCode: String(address.zipCode),
+                        token: '',
                         county: String(address.county),
                         country: String(address.country)
                     };

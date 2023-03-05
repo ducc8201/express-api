@@ -3,15 +3,15 @@ import * as dotenv from "dotenv";
 import express, { Express, Request, Response } from "express";
 import cors from "cors";
 import helmet from "helmet";
-import { itemsRouter } from "./src/items/items.router";
+import { UsersRouter } from "./src/users/users.router";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
-import { PrismaClient } from "@prisma/client";
+import { errorHandler } from "./src/middleware/error.middleware";
+import { notFoundHandler } from "./src/middleware/not-found.middleware";
 
 dotenv.config();
 
 // Init Prisma 
-const prisma = new PrismaClient()
 
 // App Variables
 if (!process.env.PORT) {
@@ -23,7 +23,7 @@ const PORT = Number(process.env.PORT)||3000
 const app: Express = express()
 
 // App Configuration
-app.use(bodyParser.urlencoded({ extended: false }))
+// app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(cookieParser())
 app.use(helmet())
@@ -39,4 +39,8 @@ app.get('/', (req: Request, res: Response) => {
   res.send('server');
 });
 
-app.use("/api/menu/items", itemsRouter)
+app.use("/api/users", UsersRouter)
+
+app.use(errorHandler)
+app.use(notFoundHandler)
+

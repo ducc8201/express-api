@@ -31,10 +31,13 @@ const dotenv = __importStar(require("dotenv"));
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const helmet_1 = __importDefault(require("helmet"));
-const items_router_1 = require("./src/items/items.router");
+const users_router_1 = require("./src/users/users.router");
 const body_parser_1 = __importDefault(require("body-parser"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
+const error_middleware_1 = require("./src/middleware/error.middleware");
+const not_found_middleware_1 = require("./src/middleware/not-found.middleware");
 dotenv.config();
+// Init Prisma 
 // App Variables
 if (!process.env.PORT) {
     process.exit(1);
@@ -42,7 +45,7 @@ if (!process.env.PORT) {
 const PORT = Number(process.env.PORT) || 3000;
 const app = (0, express_1.default)();
 // App Configuration
-app.use(body_parser_1.default.urlencoded({ extended: false }));
+// app.use(bodyParser.urlencoded({ extended: false }))
 app.use(body_parser_1.default.json());
 app.use((0, cookie_parser_1.default)());
 app.use((0, helmet_1.default)());
@@ -53,6 +56,8 @@ const server = app.listen(PORT, () => {
     console.log(`listening on port ${PORT}`);
 });
 app.get('/', (req, res) => {
-    res.send('Express + TypeScript Server Test');
+    res.send('server');
 });
-app.use("/api/menu/items", items_router_1.itemsRouter);
+app.use("/api/users", users_router_1.UsersRouter);
+app.use(error_middleware_1.errorHandler);
+app.use(not_found_middleware_1.notFoundHandler);

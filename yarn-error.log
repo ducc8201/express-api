@@ -1,8 +1,8 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\yarn\bin\yarn.js add @prisma/client: ^4.8.0,
+  C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\yarn\bin\yarn.js add @types/bcrypt
 
 PATH: 
-  C:\Users\Cong\miniconda3;C:\Users\Cong\miniconda3\Library\mingw-w64\bin;C:\Users\Cong\miniconda3\Library\usr\bin;C:\Users\Cong\miniconda3\Library\bin;C:\Users\Cong\miniconda3\Scripts;C:\Users\Cong\miniconda3\bin;C:\Users\Cong\miniconda3\condabin;C:\Users\Cong\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\Cong\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files\Git\cmd;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Users\Cong\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\ffmpeg;C:\Program Files\Amazon\AWSCLIV2;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files\Cloudflare\Cloudflare WARP;C:\Program Files\dotnet;C:\Users\Cong\miniconda3;C:\Users\Cong\miniconda3\Library\mingw-w64\bin;C:\Users\Cong\miniconda3\Library\usr\bin;C:\Users\Cong\miniconda3\Library\bin;C:\Users\Cong\miniconda3\Scripts;C:\Users\Cong\AppData\Local\Microsoft\WindowsApps;C:\Users\Cong\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\JetBrains\CLion 2022.1.3\bin;C:\Users\Cong\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\ffmpeg;C:\Program Files\JetBrains\PyCharm 2022.3.1\bin;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
+  C:\Users\Cong\miniconda3;C:\Users\Cong\miniconda3\Library\mingw-w64\bin;C:\Users\Cong\miniconda3\Library\usr\bin;C:\Users\Cong\miniconda3\Library\bin;C:\Users\Cong\miniconda3\Scripts;C:\Users\Cong\miniconda3\bin;C:\Users\Cong\miniconda3\condabin;C:\Users\Cong\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\Cong\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files\Git\cmd;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Users\Cong\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\ffmpeg;C:\Program Files\Amazon\AWSCLIV2;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files\Cloudflare\Cloudflare WARP;C:\Program Files\dotnet;C:\Users\Cong\Downloads\platform-tools_r33.0.3-windows\platform-tools;C:\Users\Cong\miniconda3;C:\Users\Cong\miniconda3\Library\mingw-w64\bin;C:\Users\Cong\miniconda3\Library\usr\bin;C:\Users\Cong\miniconda3\Library\bin;C:\Users\Cong\miniconda3\Scripts;C:\Users\Cong\AppData\Local\Microsoft\WindowsApps;C:\Users\Cong\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\JetBrains\CLion 2022.1.3\bin;C:\Users\Cong\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\ffmpeg;C:\Program Files\JetBrains\PyCharm 2022.3.1\bin;C:\Users\Cong\Downloads\platform-tools_r33.0.3-windows\platform-tools;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
 
 Yarn version: 
   1.22.19
@@ -14,17 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@prisma%2fclient:: Not found
-      at Request.params.callback [as _callback] (C:\Users\Cong\AppData\Roaming\nvm\v16.18.0\node_modules\yarn\lib\cli.js:66145:18)
-      at Request.self.callback (C:\Users\Cong\AppData\Roaming\nvm\v16.18.0\node_modules\yarn\lib\cli.js:140890:22)
-      at Request.emit (node:events:513:28)
-      at Request.<anonymous> (C:\Users\Cong\AppData\Roaming\nvm\v16.18.0\node_modules\yarn\lib\cli.js:141862:10)
-      at Request.emit (node:events:513:28)
-      at IncomingMessage.<anonymous> (C:\Users\Cong\AppData\Roaming\nvm\v16.18.0\node_modules\yarn\lib\cli.js:141784:12)
-      at Object.onceWrapper (node:events:627:28)
-      at IncomingMessage.emit (node:events:525:35)
-      at endReadableNT (node:internal/streams/readable:1358:12)
-      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+  Error: EPERM: operation not permitted, unlink 'D:\code\express-api\node_modules\@prisma\engines\query_engine-windows.dll.node'
 
 npm manifest: 
   {
@@ -38,6 +28,10 @@ npm manifest:
       "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\""
     },
     "dependencies": {
+      "@ngneat/falso": "^6.4.0",
+      "@prisma/client": "^4.8.0",
+      "@prisma/studio": "^0.479.0",
+      "@types/cookie-parser": "^1.4.3",
       "@types/cors": "^2.8.13",
       "@types/dotenv": "^8.2.0",
       "@types/express": "^4.17.15",
@@ -83,10 +77,35 @@ Lockfile:
       semver "^7.3.5"
       tar "^6.1.11"
   
+  "@ngneat/falso@^6.4.0":
+    version "6.4.0"
+    resolved "https://registry.yarnpkg.com/@ngneat/falso/-/falso-6.4.0.tgz#7ed98a95ab2a2dc39b0a0d317fe8c24512869edc"
+    integrity sha512-f6r036h2fX/AoHw1eV2t8+qWQwrbSrozs3zXMhhwoO7SJBc+DGMxRWEhFeYIinfwx0uhUH8ggx5+PDLzYESLOA==
+    dependencies:
+      seedrandom "3.0.5"
+      uuid "8.3.2"
+  
+  "@prisma/client@^4.8.0":
+    version "4.8.1"
+    resolved "https://registry.yarnpkg.com/@prisma/client/-/client-4.8.1.tgz#51c16488dfac4e74a275a2753bf20262a65f2a2b"
+    integrity sha512-d4xhZhETmeXK/yZ7K0KcVOzEfI5YKGGEr4F5SBV04/MU4ncN/HcE28sy3e4Yt8UFW0ZuImKFQJE+9rWt9WbGSQ==
+    dependencies:
+      "@prisma/engines-version" "4.8.0-61.d6e67a83f971b175a593ccc12e15c4a757f93ffe"
+  
+  "@prisma/engines-version@4.8.0-61.d6e67a83f971b175a593ccc12e15c4a757f93ffe":
+    version "4.8.0-61.d6e67a83f971b175a593ccc12e15c4a757f93ffe"
+    resolved "https://registry.yarnpkg.com/@prisma/engines-version/-/engines-version-4.8.0-61.d6e67a83f971b175a593ccc12e15c4a757f93ffe.tgz#30401aba1029e7d32e3cb717e705a7c92ccc211e"
+    integrity sha512-MHSOSexomRMom8QN4t7bu87wPPD+pa+hW9+71JnVcF3DqyyO/ycCLhRL1we3EojRpZxKvuyGho2REQsMCvxcJw==
+  
   "@prisma/engines@4.8.1":
     version "4.8.1"
     resolved "https://registry.yarnpkg.com/@prisma/engines/-/engines-4.8.1.tgz#8428f7dcd7912c6073024511376595017630dc85"
     integrity sha512-93tctjNXcIS+i/e552IO6tqw17sX8liivv8WX9lDMCpEEe3ci+nT9F+1oHtAafqruXLepKF80i/D20Mm+ESlOw==
+  
+  "@prisma/studio@^0.479.0":
+    version "0.479.0"
+    resolved "https://registry.yarnpkg.com/@prisma/studio/-/studio-0.479.0.tgz#d58612d6dc7bb32fd95690893f29afa93faeeb8c"
+    integrity sha512-/dlgusVbtglUIvwIpu5qt3sYNXpulH1WlucyoEYb7tBtt/E7Sitk/BAfLuKSlcfNzDKLYZ8W6+u0JB4jO39vYA==
   
   "@types/body-parser@*":
     version "1.19.2"
@@ -102,6 +121,13 @@ Lockfile:
     integrity sha512-cdeYyv4KWoEgpBISTxWvqYsVy444DOqehiF3fM3ne10AmJ62RSyNkUnxMJXHQWRQQX2eR94m5y1IZyDwBjV9FQ==
     dependencies:
       "@types/node" "*"
+  
+  "@types/cookie-parser@^1.4.3":
+    version "1.4.3"
+    resolved "https://registry.yarnpkg.com/@types/cookie-parser/-/cookie-parser-1.4.3.tgz#3a01df117c5705cf89a84c876b50c5a1fd427a21"
+    integrity sha512-CqSKwFwefj4PzZ5n/iwad/bow2hTCh0FlNAeWLtQM3JA/NX/iYagIpWG2cf1bQKQ2c9gU2log5VUCrn7LDOs0w==
+    dependencies:
+      "@types/express" "*"
   
   "@types/cors@^2.8.13":
     version "2.8.13"
@@ -126,7 +152,7 @@ Lockfile:
       "@types/qs" "*"
       "@types/range-parser" "*"
   
-  "@types/express@^4.17.15":
+  "@types/express@*", "@types/express@^4.17.15":
     version "4.17.15"
     resolved "https://registry.yarnpkg.com/@types/express/-/express-4.17.15.tgz#9290e983ec8b054b65a5abccb610411953d417ff"
     integrity sha512-Yv0k4bXGOH+8a+7bELd2PqHQsuiANB+A8a4gnQrkRWzrkKlb6KHaVvyXhqs04sVW/OWlbPyYxRgYlIXLfrufMQ==
@@ -1075,6 +1101,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
     integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
   
+  seedrandom@3.0.5:
+    version "3.0.5"
+    resolved "https://registry.yarnpkg.com/seedrandom/-/seedrandom-3.0.5.tgz#54edc85c95222525b0c7a6f6b3543d8e0b3aa0a7"
+    integrity sha512-8OwmbklUNzwezjGInmZ+2clQmExQPvomqjL7LFqOYqtmuxRgQYqOD3mHaU+MvZn5FLUeVxVfQjwLZW/n/JFuqg==
+  
   semver@^5.7.1:
     version "5.7.1"
     resolved "https://registry.yarnpkg.com/semver/-/semver-5.7.1.tgz#a954f931aeba508d307bbf069eff0c01c96116f7"
@@ -1294,6 +1325,11 @@ Lockfile:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
     integrity sha512-pMZTvIkT1d+TFGvDOqodOclx0QWkkgi6Tdoa8gC8ffGAAqz9pzPTZWAybbsHHoED/ztMtkv/VoYTYyShUn81hA==
+  
+  uuid@8.3.2:
+    version "8.3.2"
+    resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.3.2.tgz#80d5b5ced271bb9af6c445f21a1a04c606cefbe2"
+    integrity sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==
   
   vary@^1, vary@~1.1.2:
     version "1.1.2"
