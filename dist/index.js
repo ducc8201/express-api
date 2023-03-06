@@ -32,6 +32,7 @@ const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const helmet_1 = __importDefault(require("helmet"));
 const users_router_1 = require("./src/users/users.router");
+const auth_router_1 = require("./src/auth/auth.router");
 const body_parser_1 = __importDefault(require("body-parser"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const error_middleware_1 = require("./src/middleware/error.middleware");
@@ -58,6 +59,7 @@ const server = app.listen(PORT, () => {
 app.get('/', (req, res) => {
     res.send('server');
 });
+app.use('/api/auth', auth_router_1.AuthRouter);
 app.use("/api/users", users_router_1.UsersRouter);
 app.use(error_middleware_1.errorHandler);
 app.use(not_found_middleware_1.notFoundHandler);

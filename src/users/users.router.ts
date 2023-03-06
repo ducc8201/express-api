@@ -1,7 +1,6 @@
 import * as UserService from "./users.service"
 import express, { Express, Request, Response } from "express"
-import { User } from "./user.interface"
-import { randUuid } from "@ngneat/falso";
+import { User } from "@prisma/client"
 
 export const UsersRouter = express.Router()
 

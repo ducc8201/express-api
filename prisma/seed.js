@@ -38,6 +38,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 exports.__esModule = true;
 var client_1 = require("@prisma/client");
 var falso_1 = require("@ngneat/falso");
+var bcrypt = require("bcrypt");
 var prisma = new client_1.PrismaClient();
 function main() {
     return __awaiter(this, void 0, void 0, function () {
@@ -54,8 +55,8 @@ function main() {
                     item = {
                         id: (0, falso_1.randUuid)(),
                         name: (0, falso_1.randFullName)(),
-                        password: (0, falso_1.randPassword)(),
-                        password2: (0, falso_1.randPassword)(),
+                        password: bcrypt.hashSync((0, falso_1.randPassword)(), 10),
+                        password2: bcrypt.hashSync((0, falso_1.randPassword)(), 10),
                         username: (0, falso_1.randUserName)(),
                         email: (0, falso_1.randEmail)(),
                         phone: (0, falso_1.randPhoneNumber)(),

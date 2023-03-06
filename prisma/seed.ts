@@ -1,5 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import { randEmail, randFullName, randAddress, randPhoneNumber, randUserName, randPassword, randUuid } from '@ngneat/falso';
+import * as bcrypt from "bcrypt";
 const prisma = new PrismaClient()
 
 async function main() {
@@ -9,8 +10,8 @@ async function main() {
     let item = {
       id: randUuid(),
       name: randFullName(),
-      password: randPassword(),
-      password2: randPassword(),
+      password: bcrypt.hashSync(randPassword(), 10),
+      password2: bcrypt.hashSync(randPassword(), 10),
       username: randUserName(),
       email: randEmail(),
       phone: randPhoneNumber(),

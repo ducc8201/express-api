@@ -4,6 +4,7 @@ import express, { Express, Request, Response } from "express";
 import cors from "cors";
 import helmet from "helmet";
 import { UsersRouter } from "./src/users/users.router";
+import { AuthRouter } from "./src/auth/auth.router";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import { errorHandler } from "./src/middleware/error.middleware";
@@ -39,6 +40,7 @@ app.get('/', (req: Request, res: Response) => {
   res.send('server');
 });
 
+app.use('/api/auth', AuthRouter)
 app.use("/api/users", UsersRouter)
 
 app.use(errorHandler)

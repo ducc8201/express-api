@@ -1,6 +1,7 @@
 import { PrismaClient } from "@prisma/client";
-import { User } from "./user.interface";
+import { User } from "@prisma/client";
 import { randUuid } from "@ngneat/falso";
+import * as bcrypt from "bcrypt";
 
 const prisma = new PrismaClient();
 
@@ -34,7 +35,12 @@ export const find = async (id: string) => {
 
 export const create = async (newUser: User) => {
   newUser.id = randUuid()
+  newUser.token = ''
   const isEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(newUser.email);
+  if (isEmail) {
+    const hashPassword = bcrypt.hashSync(newUser.password, 10)
+    newUser.password = hashPassword
+  }
   console.log(newUser)
   try {
     await prisma.user.create({
